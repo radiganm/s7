@@ -1,0 +1,3 @@
+[submodule "tecla"]
+	path = tecla
+	url = https://github.com/radiganm/tecla.git
