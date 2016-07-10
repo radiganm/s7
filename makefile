@@ -54,11 +54,14 @@ LDFLAGS = -O2 $(ARCH) -g -L/usr/local/lib/libtecla.a -lm -ldl -ltecla -lcurses
 
 all: build
 
-build: $(LIBS_SO)
+build: $(LIBS_SO) libs7.a
 	$(CC) s7-repl.c -o s7 s7.o -I. $(LDFLAGS)
 
 %.so: %.o
 	$(CC) -shared -o lib$@ $<
+
+libs7.a: $(LIBS_O)
+	ar rvs $@ $^
 
 clean:
 	-rm -f ./*.o
